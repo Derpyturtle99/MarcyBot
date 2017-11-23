@@ -2,7 +2,13 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./package.json");
 
-client.user.SetGame(`test`);
+await client.user.setPresence({
+  data: {
+       game: {
+            name: '?help'
+        }
+    }
+})
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -14,19 +20,19 @@ client.on('message', message => {
   	}
 });
 
-client.on("message", async message => {
+client.on('message', async message => {
 if(message.author.bot) return;
 if(message.content.indexOf(config.prefix) !== 0) return;
 const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
   
-if (command === "echo") {
+if (command === 'echo') {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
     message.channel.send(sayMessage);
 }
     
-if (command === "pong") {
+if (command === 'pong') {
     message.channel.send("Ping!");
 }
 });
