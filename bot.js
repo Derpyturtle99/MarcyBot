@@ -11,5 +11,16 @@ client.on('message', message => {
   	}
 });
 
+client.on('message', message => {
+    if (message.content === '?echo') {
+        const sayMessage = args.join(" ");
+        message.delete().catch(O_o=>{});
+        message.channel.send(sayMessage);
+    }
+});
+
+        
+        
+
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
