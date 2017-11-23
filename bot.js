@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const config = require("./config.json");
+const config = require("./package.json");
 
 client.on('ready', () => {
     console.log('I am ready!');
@@ -22,6 +22,10 @@ if (command === "echo") {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
     message.channel.send(sayMessage);
+}
+    
+if (command === "pong") {
+    message.channel.send("Ping!");
 }
 });
         
