@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./package.json");
 
+client.user.SetGame(`test`);
+
 client.on('ready', () => {
     console.log('I am ready!');
 });
