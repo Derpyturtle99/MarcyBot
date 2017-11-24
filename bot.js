@@ -42,7 +42,7 @@ client.on('message', message => {
     if (message.context === '?echo') {
         let text = args.slice(1).join(" ");
         message.delete();
-        message.channel.send(text);
+        message.reply(text);
     }
 });
         
