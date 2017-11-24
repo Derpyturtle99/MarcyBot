@@ -18,4 +18,16 @@ client.on('message', message => {
    }
 });
 
+client.on('message', message => {
+    if (message.content === '?coinflip') {
+      async run (message, args) {
+         var coinans = [
+             'Heads?', 'Tails!'
+       ];
+       var coinans = coinans[Math.floor(Math.random() * 2 )];
+       message.reply(answer.ToString())
+       }
+    }
+});
+
 client.login(process.env.BOT_TOKEN);
