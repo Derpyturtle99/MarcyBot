@@ -10,7 +10,7 @@ function doCoinFlip() {
     return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
 }
 //dice
-function doRollDice() {
+function doDiceRoll() {
     var diceAnswer = ['1', '2', '3', '4', '5', '6'];
 
     return
