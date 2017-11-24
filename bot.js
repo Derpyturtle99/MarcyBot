@@ -8,10 +8,14 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content === '?ping') {
-    	message.reply('Pongg!');
+    	message.reply('Pong!');
   	}
 });
         
+client.on('message', message => {
+    if (message.content === '?echo') {
+      message.send('hello!');
+}
+});
 
-// THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN);
