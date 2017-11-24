@@ -32,11 +32,19 @@ client.on('message', message => {
 
 // Coin Flip Command
 client.on('message', message => {
-    if (message.content === '?flipcoin') {
+    if (message.content === '?coinflip') {
         message.reply(doCoinFlip() + '!');
     }
 });
 
-// 
+// Echo Command
+client.on('message', message => {
+    if (message.context === '?echo') {
+        let text = args.slice(1).join(" ");
+        message.delete();
+        message.channel.send(text);
+    }
+});
+        
 
 client.login(process.env.BOT_TOKEN);
