@@ -4,7 +4,7 @@ const client = new Discord.Client();
 // Variables
 
 function doCoinFlip() {
-    var coinAnswer = ['Heads!', 'Tails!'];
+    var coinAnswer = ['Heads', 'Tails'];
 
     return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
 }
@@ -29,8 +29,8 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === '?flipcoin') {
-        message.reply(message, ' ' + doCoinFlip());
-}
+        message.reply(message, doCoinFlip() + '!');
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
