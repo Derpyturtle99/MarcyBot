@@ -28,7 +28,7 @@ if (message.content === 'echo') {
 }
     
 if (message.content === 'pong') {
-    message.channel.send('Ping');
+    message.channel.reply('Ping');
 }
 });
         
