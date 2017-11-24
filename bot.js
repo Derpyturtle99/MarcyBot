@@ -3,7 +3,11 @@ const client = new Discord.Client();
 
 // Variables
 
-var coinans = coinans[Math.floor(Math.random() * 2 )];
+function doCoinFlip() {
+    var coinAnswer = ['Heads!', 'Tails!'];
+
+    return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
+}
 
 // Commands
 
@@ -24,14 +28,9 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content === '?coinflip') {
-async run (message, args) {
-         var coinans = [
-             'Heads?', 'Tails!'
-       ];
-message.reply(answer.ToString());
-        }
-    }
+    if (message.content === '?flipcoin') {
+        message.reply(message, ' ' + doCoinFlip());
+}
 });
 
 client.login(process.env.BOT_TOKEN);
