@@ -13,8 +13,7 @@ function doCoinFlip() {
 function doDiceRoll() {
     var diceAnswer = ['1', '2', '3', '4', '5', '6'];
 
-    return
-diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
+    return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
 
 // Commands
 
@@ -45,7 +44,7 @@ client.on('message', message => {
 
 // Dice Roll Command
 client.on('message', message => {
-    if (message.content === '?rolldie') {
+    if (message.content === '?rolldice') {
         message.reply(doDiceRoll() + '!');
     }
 });
