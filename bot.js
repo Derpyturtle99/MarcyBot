@@ -20,18 +20,17 @@ if(message.author.bot) return;
 if(message.content.indexOf(config.prefix) !== 0) return;
 const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
-  
-if (message.content === 'echo') {
-    const sayMessage = args.join(" ");
-    message.delete().catch(O_o=>{});
-    message.channel.send(sayMessage);
-}
     
 if (message.content === 'pong') {
     message.channel.reply('Ping');
 }
 });
         
+async def ping(ctx, *args):
+    message.content = ' '.join(args)
+    await client.delete_message(ctx.message)
+    return await client.say(message)
+
         
 
 // THIS  MUST  BE  THIS  WAY
