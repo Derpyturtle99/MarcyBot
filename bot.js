@@ -11,12 +11,6 @@ client.on('message', message => {
     	message.reply('Pong!');
   	}
 });
-        
-client.on('message', message => {
-    if (message.content === '?echo') {
-const sayMessage = args.join(" ");
-message.channel.say(sayMessage);
-   }
-});
+
 
 client.login(process.env.BOT_TOKEN);
