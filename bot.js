@@ -9,11 +9,6 @@ function doCoinFlip() {
 
     return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
 }
-//dice
-function doDiceRoll() {
-    var rollAnswer = ['1', '2', '3', '4', '5', '6'];
-
-    return rollAnswer[Math.floor(Math.random()*rollAnswer.length)];
 
 // Commands
 
@@ -42,11 +37,6 @@ client.on('message', message => {
     }
 });
 
-// Dice Roll Command
-client.on('message', message => {
-    if (message.content === '?rolldice') {
-        message.reply(doDiceRoll() + '!');
-    }
-});
+// 
 
 client.login(process.env.BOT_TOKEN);
