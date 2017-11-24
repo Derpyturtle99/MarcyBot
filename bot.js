@@ -13,9 +13,10 @@ client.on('message', message => {
 });
         
 client.on('message', message => {
-    if (message.content === '?echo') {
-      message.send('hello!');
-}
+    if (message.content === '?echo' {
+const sayMessage = args.join(" ");
+message.channel.say(sayMessage);
+   }
 });
 
 client.login(process.env.BOT_TOKEN);
