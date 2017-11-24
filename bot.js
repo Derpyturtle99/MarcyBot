@@ -18,6 +18,7 @@ client.on('message', message => {
 client.on('message', message => {
 if (message.content === '?echo') {
 message.send('okay');
+}
 });
         
 
