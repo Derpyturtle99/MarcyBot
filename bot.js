@@ -16,9 +16,9 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content === '?echo') {
-      message.reply('okay');
-   }
+    if (message.content === '?pingg') {
+    	message.reply('Pongg!');
+  	}
 });
         
 
