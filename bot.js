@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-// Variables
+// Variables / Functions
 
 // flipcoin
 function doCoinFlip() {
@@ -11,9 +11,9 @@ function doCoinFlip() {
 }
 //dice
 function doDiceRoll() {
-    var diceAnswer = ['1', '2', '3', '4', '5', '6'];
+    var rollAnswer = ['1', '2', '3', '4', '5', '6'];
 
-    return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
+    return rollAnswer[Math.floor(Math.random()*rollAnswer.length)];
 
 // Commands
 
