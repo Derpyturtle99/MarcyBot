@@ -5,11 +5,6 @@ const client = new Discord.Client();
 
 var coinans = coinans[Math.floor(Math.random() * 2 )];
 
-async run (message, args) {
-         var coinans = [
-             'Heads?', 'Tails!'
-       ];
-
 // Commands
 
 client.on('ready', () => {
@@ -30,7 +25,12 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === '?coinflip') {
+async run (message, args) {
+         var coinans = [
+             'Heads?', 'Tails!'
+       ];
 message.reply(answer.ToString());
+        }
     }
 });
 
