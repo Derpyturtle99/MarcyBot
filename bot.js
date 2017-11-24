@@ -13,7 +13,7 @@ client.on('message', message => {
 });
         
 client.on('message', message => {
-    if (message.content === '?echo' {
+    if (message.content === '?echo') {
 const sayMessage = args.join(" ");
 message.channel.say(sayMessage);
    }
