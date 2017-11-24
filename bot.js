@@ -24,13 +24,13 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === '?nuzzle') {
-      message.reply('*nuzzles UwU*');
+      message.reply('*nuzzles* UwU');
    }
 });
 
 client.on('message', message => {
     if (message.content === '?coinflip') {
-message.reply(answer.ToString())
+message.reply(answer.ToString());
     }
 });
 
