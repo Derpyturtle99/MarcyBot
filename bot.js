@@ -27,7 +27,6 @@ client.on('ready', () => {
 client.on('message', message => {
     if (message.content === '?ping') {
     	message.reply('Pong!');
-      message.edit(`Pong! Latency is ${message.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   	}
 });
 
@@ -65,6 +64,11 @@ client.on('message', message => {
     }
 });
 
-        
+//Set Game Command
+client.on('message', message => {
+    if (message.content === '?setgame') {
+        client.setPlayingGame('a game');
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
