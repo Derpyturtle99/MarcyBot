@@ -30,6 +30,19 @@ client.on('message', message => {
    }
 });
 
+// say Start
+client.on('message', message => {
+    if (message.content === '?start') {
+        message.send(`Welcome. You have automatically been given the emote role by joining. If you aren't able to use emotes, Just press Ctrl + R, or just restart discord.
+
+-------------------------------------------------------
+
+Permanent Invite: 
+
+https://discord.gg/RnB4Wac`);
+    }
+});
+    
 // Coin Flip Command
 client.on('message', message => {
     if (message.content === '?coinflip') {
