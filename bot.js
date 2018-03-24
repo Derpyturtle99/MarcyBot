@@ -64,10 +64,10 @@ client.on('message', message => {
     }
 });
 
-//Set Game Command
+//test
 client.on('message', message => {
-    if (message.content === '?setgame') {
-        client.setPlayingGame('a game');
+    if (message.content === '?test') {
+        client.message.sendMessage('test');
     }
 });
 
