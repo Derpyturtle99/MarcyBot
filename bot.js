@@ -57,11 +57,13 @@ Permanent Invite:
 https://discord.gg/RnB4Wac`);
     }
 });
+
 // Dice
 client.on('message', message => {
     if (message.content === '?dice') {
         message.reply(doDice() + '!');
     }
+});
     
 // Coin Flip Command
 client.on('message', message => {
