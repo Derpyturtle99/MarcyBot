@@ -67,7 +67,7 @@ client.on('message', message => {
 //test
 client.on('message', message => {
     if (message.content === '?test') {
-        client.sendMessage('test');
+        message('test');
     }
 });
 
