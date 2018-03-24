@@ -59,7 +59,7 @@ client.on('message', message => {
     
 // Coin Flip Command
 client.on('message', message => {
-    if (message.content === '?coinflip') {
+    if (message.content === '?cf') {
         message.reply(doCoinFlip() + '!');
     }
 });
@@ -67,7 +67,7 @@ client.on('message', message => {
 //test
 client.on('message', message => {
     if (message.content === '?test') {
-        client.message.sendMessage('test');
+        client.sendMessage('test');
     }
 });
 
