@@ -19,7 +19,7 @@ client.on('ready', () => {
 // Ping Command
 client.on('message', message => {
     if (message.content === '?ping') {
-    	message.reply('test');
+    	message.reply('Pong!');
   	}
 });
 
