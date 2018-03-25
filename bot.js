@@ -33,7 +33,8 @@ client.on('message', message => {
 // Nuzzle Command
 client.on('message', message => {
     if (message.content === '?nuzzle') {
-      message.reply('*nuzzles* UwU');
+        message.delete().catch(O_o=>{})
+        message.reply('*nuzzles* UwU');
    }
 });
 
@@ -67,7 +68,7 @@ client.on('message', message => {
 // Say Command
 client.on('message', message => {
     if (message.content === '?say') {
-        const sayMessage = args.join(" ");
+        const sayMessage = args.join(" ")
         message.reply(sayMessage);
     }
 });
