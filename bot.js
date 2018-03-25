@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 // Variables / Functions
+const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 
 // Status
 client.on("ready", () => {
