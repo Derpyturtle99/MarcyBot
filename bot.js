@@ -27,6 +27,18 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+// Purge Command
+client.on('message', message => {
+    if(message.author.bot) return;
+    const args = message.content.slice(process.prefix).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    if (command === '!purge') {
+        const deleteCount = parseInt(args[0], 10);
+        if(!deleteCount || deleteCount < 0 || deleteCount > 100)
+      return message.reply("Please provide a number between 1 and 100 for the number of messages to delete");
+    }
+});
+
 // Nuzzle Command
 client.on('message', message => {
     if (message.content === '!nuzzle') {
