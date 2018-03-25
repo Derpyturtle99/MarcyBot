@@ -50,6 +50,7 @@ client.on('message', message => {
 
 // Say Command
 client.on('message', message => {
+    if(message.author.bot) return;
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
     if (message.content === '!say') {
         const sayMessage = args.join(" ");
