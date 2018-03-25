@@ -34,8 +34,8 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
     if (command === '!purge') {
         const deleteCount = parseInt(args[0], 10);
-        if(!deleteCount || deleteCount < 0 || deleteCount > 100)
-      return message.reply("Please provide a number between 1 and 100 for the number of messages to delete");
+        if(!deleteCount || deleteCount < 2 || deleteCount > 100)
+      return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
     message.channel.bulkDelete(deleteCount)
         .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
