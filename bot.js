@@ -12,16 +12,20 @@ client.on("ready", () => {
 // flipcoin function
 function doCoinFlip() {
     var coinAnswer = ['Heads', 'Tails'];
-
     return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
 }
 
 // dice function
 function doDice() {
     var diceAnswer = ['1', '2', '3', '4', '5', '6'];
-
     return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
 }
+
+// say function
+function doSay() {
+    var sayMessage = args.join(" ");
+}
+
 
 // Commands
 
@@ -58,5 +62,11 @@ client.on('message', message => {
     }
 });
 
+// Say Command
+client.on('message', message => {
+    if (message.content === 'say' {
+        message.reply(sayMessage() + '!');
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
