@@ -3,14 +3,18 @@ const client = new Discord.Client();
 
 // Variables / Functions
 
-// flipcoin
+// Arg Function
+const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+const command = args.shift().toLowerCase();
+
+// flipcoin function
 function doCoinFlip() {
     var coinAnswer = ['Heads', 'Tails'];
 
     return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
 }
 
-// dice
+// dice function
 function doDice() {
     var diceAnswer = ['1', '2', '3', '4', '5', '6'];
 
