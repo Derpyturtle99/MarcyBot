@@ -44,9 +44,9 @@ client.on('message', message => {
 
 // Beep, Boop Command
 client.on('message', message => {
-if (message.content === '?beep') {
-message.reply('boop!');
-}
+    if (message.content === '?beep') {
+        client.sendMessage(message.channel, "boop!");
+    }
 });
 
 // Dice
