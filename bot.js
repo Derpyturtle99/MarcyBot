@@ -29,14 +29,15 @@ client.on('ready', () => {
 
 // Ping Command
 client.on('message', message => {
-    if (message.content === '?ping') {
-    	message.reply('Pong!');
+    if (message.content === '!ping') {
+    	message.channel.send('Pong!');
+        message.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   	}
 });
 
 // Nuzzle Command
 client.on('message', message => {
-    if (message.content === '?nuzzle') {
+    if (message.content === '!nuzzle') {
         message.delete().catch(O_o=>{})
         message.reply('*nuzzles* UwU');
    }
@@ -44,28 +45,27 @@ client.on('message', message => {
 
 // Beep, Boop Command
 client.on('message', message => {
-    if (message.content === '?beep') {
+    if (message.content === '!beep') {
         message.channel.send('boop!');
     }
 });
 
 client.on('message', message => {
     if (message.content === 'no') {
-        message.delete().catch(O_o=>{})
         message.channel.send('yES!');
     }
 });
 
 // Dice
 client.on('message', message => {
-    if (message.content === '?dice') {
+    if (message.content === '!dice') {
         message.reply(doDice() + '!');
     }
 });
     
 // Coin Flip Command
 client.on('message', message => {
-    if (message.content === '?cf') {
+    if (message.content === '!cf') {
         message.reply(doCoinFlip() + '!');
     }
 });
