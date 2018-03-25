@@ -55,7 +55,8 @@ client.on('message', message => {
 // Say Command
 client.on('message', message => {
     if (message.content === '?say') {
-        var sayMessage = args.join(" ")
+        const sayMessage = args.join(" ")
+        message.delete().catch(O_o=>{})
         message.reply(sayMessage);
     }
 });
