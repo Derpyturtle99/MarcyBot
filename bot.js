@@ -6,7 +6,7 @@ const client = new Discord.Client();
 // Status
 client.on("ready", () => {
     console.log("online");
-    client.user.setPresence({ game: { name: 'with Kat!', type: 0} });
+    client.user.setPresence({ game: { name: 'with Kat', type: 0} });
 });
 
 // flipcoin function
@@ -51,7 +51,7 @@ client.on('message', message => {
 
 client.on('message', function(message) {
       if(message.content === '?test') {
-          client.sendMessage(`hello!`);
+          client.sendMessage('426940712345534465', "hello!");
       }
 });
 
