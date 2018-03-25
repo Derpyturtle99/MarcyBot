@@ -52,11 +52,12 @@ client.on('message', message => {
 client.on('message', message => {
     if(message.author.bot) return;
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
-    if (message.content === '!say') {
+    const command = args.shift().toLowerCase();
+    if (command === '!say') {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o=>{}); 
         message.channel.send(sayMessage);
-  }
+    }
 });
     
 // Dice
