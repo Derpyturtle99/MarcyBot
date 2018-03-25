@@ -45,14 +45,15 @@ client.on('message', message => {
 // Beep, Boop Command
 client.on('message', message => {
     if (message.content === '?beep') {
-        client.sendMessage(message.channel, "boop!");
+        message.channel.send('boop!');
     }
 });
 
 client.on('message', message => {
-    if (message.content === '?test') {
-          message.channel.send("Your message here.")
-      }
+    if (message.contetn === 'no') {
+        message.delete().catch(O_o=>{})
+        message.channel.send('yES!');
+    }
 });
 
 // Dice
