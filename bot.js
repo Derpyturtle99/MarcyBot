@@ -5,8 +5,8 @@ const client = new Discord.Client();
 
 // Status
 client.on("ready", () => {
-    console.log("online");
-    client.user.setPresence({ game: { name: 'test', type: 0} });
+    console.log("dnd");
+    client.user.setPresence({ game: { name: 'with Daddy Salah', type: 0} });
 });
 
 // flipcoin function
