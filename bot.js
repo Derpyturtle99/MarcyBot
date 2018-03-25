@@ -21,12 +21,6 @@ function doDice() {
     return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
 }
 
-// say function
-function doSay() {
-    var sayMessage = args.join(" ");
-}
-
-
 // Commands
 
 client.on('ready', () => {
@@ -59,13 +53,6 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.content === '?cf') {
         message.reply(doCoinFlip() + '!');
-    }
-});
-
-// Say Command
-client.on('message', message => {
-    if (message.content === '?say') {
-        message.reply(sayMessage() + '!');
     }
 });
 
