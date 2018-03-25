@@ -6,7 +6,7 @@ const client = new Discord.Client();
 // Status
 client.on("ready", () => {
     console.log("online");
-    client.user.setPresence({ game: { name: 'with Kat ❤️', type: 0} });
+    client.user.setPresence({ game: { name: 'with Kat!', type: 0} });
 });
 
 // flipcoin function
@@ -40,6 +40,13 @@ client.on('message', message => {
         message.delete().catch(O_o=>{})
         message.reply('*nuzzles* UwU');
    }
+});
+
+// Beep, Boop Command
+client.on('message', message => {
+if (message.content === '?beep') {
+message.reply('boop!');
+}
 });
 
 // Dice
