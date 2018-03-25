@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 // Status
 client.on("ready", () => {
-    console.log("dnd");
+    console.log("online");
     client.user.setPresence({ game: { name: 'with Daddy Salah', type: 0} });
 });
 
