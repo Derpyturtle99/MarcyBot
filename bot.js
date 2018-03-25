@@ -3,10 +3,6 @@ const client = new Discord.Client();
 
 // Variables / Functions
 
-// Arg Function
-const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
-
 // flipcoin function
 function doCoinFlip() {
     var coinAnswer = ['Heads', 'Tails'];
@@ -42,19 +38,6 @@ client.on('message', message => {
    }
 });
 
-// say Start
-client.on('message', message => {
-    if (message.content === '?start') {
-        message.channel.send(`Welcome. You have automatically been given the emote role by joining. If you aren't able to use emotes, Just press Ctrl + R, or just restart discord.
-
--------------------------------------------------------
-
-Permanent Invite: 
-
-https://discord.gg/RnB4Wac`);
-    }
-});
-
 // Dice
 client.on('message', message => {
     if (message.content === '?dice') {
@@ -72,7 +55,7 @@ client.on('message', message => {
 // Say Command
 client.on('message', message => {
     if (message.content === '?say') {
-        const sayMessage = args.join(" ")
+        var sayMessage = args.join(" ")
         message.reply(sayMessage);
     }
 });
