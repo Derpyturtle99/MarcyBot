@@ -30,8 +30,8 @@ client.on('ready', () => {
 // Ping Command
 client.on('message', message => {
     if (message.content === '!ping') {
-    	message.channel.send('Pong!');
-        message.edit(`Pong! Latency is ${message.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+        const m = await message.channel.send("Ping?");
+        m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
   	}
 });
 
