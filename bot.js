@@ -50,7 +50,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.contetn === 'no') {
+    if (message.content === 'no') {
         message.delete().catch(O_o=>{})
         message.channel.send('yES!');
     }
