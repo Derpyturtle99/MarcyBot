@@ -3,6 +3,12 @@ const client = new Discord.Client();
 
 // Variables / Functions
 
+// Status
+client.on("ready", () => {
+    console.log("online");
+    client.user.setPresence({ game: { name: 'test', type: 0} });
+});
+
 // flipcoin function
 function doCoinFlip() {
     var coinAnswer = ['Heads', 'Tails'];
@@ -52,13 +58,5 @@ client.on('message', message => {
     }
 });
 
-// Say Command
-client.on('message', message => {
-    if (message.content === '?say') {
-        const sayMessage = args.join(" ")
-        message.delete().catch(O_o=>{})
-        message.reply(sayMessage);
-    }
-});
 
 client.login(process.env.BOT_TOKEN);
