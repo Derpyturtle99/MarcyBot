@@ -49,6 +49,12 @@ client.on('message', message => {
     }
 });
 
+client.on("message", function(message) {
+      if(message.content === "?test") {
+          client.message.send('hello!');
+      }
+});
+
 // Dice
 client.on('message', message => {
     if (message.content === '?dice') {
