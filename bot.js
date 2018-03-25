@@ -64,10 +64,11 @@ client.on('message', message => {
     }
 });
 
-//test
+// Say Command
 client.on('message', message => {
-    if (message.content === '?test') {
-        message('test');
+    if (message.content === '?say') {
+        const sayMessage = args.join(" ");
+        message.reply(sayMessage);
     }
 });
 
