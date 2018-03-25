@@ -50,7 +50,7 @@ client.on('message', message => {
 
 // Say Command
 client.on('message', message => {
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    const args = message.content.slice(process.prefix.length).trim().split(/ +/g);
     if (message.content === '!say') {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o=>{}); 
