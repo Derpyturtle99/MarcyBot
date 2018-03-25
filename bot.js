@@ -49,9 +49,9 @@ client.on('message', message => {
     }
 });
 
-client.on('message', function(message) {
+client.on('message', message => {
       if(message.content === '?test') {
-          client.message('hello!');
+          message.author.sendMessage("Your message here.")
       }
 });
 
