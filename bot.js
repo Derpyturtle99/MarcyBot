@@ -27,14 +27,6 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-// Ping Command
-client.on('message', message => {
-    if (message.content === '!ping') {
-        const m = async message.channel.send("Ping?");
-        m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
-  	}
-});
-
 // Nuzzle Command
 client.on('message', message => {
     if (message.content === '!nuzzle') {
@@ -56,6 +48,15 @@ client.on('message', message => {
     }
 });
 
+// Say Command
+client.on('message', message => {
+    if (message.content === '!say') {
+        const sayMessage = args.join(" ");
+        message.delete().catch(O_o=>{}); 
+        message.channel.send('hi');
+  }
+});
+    
 // Dice
 client.on('message', message => {
     if (message.content === '!dice') {
