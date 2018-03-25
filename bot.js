@@ -51,7 +51,7 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === '?test') {
-          message.sendMessage("Your message here.")
+          message.channel.send("Your message here.")
       }
 });
 
