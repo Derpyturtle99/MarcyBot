@@ -51,7 +51,7 @@ client.on('message', message => {
 
 client.on('message', function(message) {
       if(message.content === '?test') {
-          client.sendMessage('426940712345534465', "hello!");
+          client.message('hello!');
       }
 });
 
