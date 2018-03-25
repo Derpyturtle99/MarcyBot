@@ -64,7 +64,7 @@ client.on('message', message => {
 
 // Say Command
 client.on('message', message => {
-    if (message.content === 'say' {
+    if (message.content === '?say') {
         message.reply(sayMessage() + '!');
     }
 });
