@@ -51,7 +51,7 @@ client.on('message', message => {
 
 client.on('message', function(message) {
       if(message.content === '?test') {
-          client.message.sendMessage(`hello!`);
+          client.sendMessage(`hello!`);
       }
 });
 
