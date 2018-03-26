@@ -27,6 +27,17 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+// Set Game
+client.on('message', message => {
+    if(message.author.bot) return;
+    const args = message.content.slice(process.prefix).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    if (command === !setgame') {
+        const gameMessage = args.join(" ");
+        client.user.setPresence({ game: { name: gameMessage, type: 0} });
+    }
+});
+
 // Purge Command
 client.on('message', message => {
     if(message.author.bot) return;
@@ -53,12 +64,6 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.content === '!beep') {
         message.channel.send('boop!');
-    }
-});
-
-client.on('message', message => {
-    if (message.content === 'no') {
-        message.channel.send('yES!');
     }
 });
 
