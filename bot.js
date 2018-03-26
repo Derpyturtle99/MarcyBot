@@ -28,6 +28,8 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 // var "gameSet" config
     const gameSet = args.join(" ");
+// role perms only
+    if(!message.member.roles.some(r=>["🔑"].includes(r.name)) )
 
 // Set Game
     if (command === '!setgame') {
