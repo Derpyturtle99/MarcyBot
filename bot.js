@@ -27,12 +27,19 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
     if (command === '!setgame') {
         const gameSet = args.join(" ");
-if (message.content === '!setgame') {
-    message.reply('Please provide a game for me to play!');
-}
-        client.user.setPresence({ game: { name: gameSet, type: 0} });
-        message.reply('Game set to: **' + (gameSet) + '**!')
+        if  (message.content === '!setgame reset') {
+            message.reply('Game has been reset!')
+            return
+            if (gameSet === null) {
+                message.reply('Please provide a game you would like me to play!')
+                else {
+                    client.user.setPresence({ game: { name: gameSet, type: 0} });
+                    message.reply('Game set to: **' + (gameSet) + '**')
+                }
+            }
+        }
     }
+            
 });
 
 // Purge Command
