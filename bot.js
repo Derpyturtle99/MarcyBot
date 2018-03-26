@@ -26,7 +26,8 @@ client.on('message', message => {
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     if (command === '!setgame') {
-        client.user.setPresence({ game: { name: 'with Kat', type: 0} });
+        const gameSet = args.join(" ");
+        client.user.setPresence({ game: { name: gameSet, type: 0} });
     }
 });
 
