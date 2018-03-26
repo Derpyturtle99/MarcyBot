@@ -27,6 +27,9 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
     if (command === '!setgame') {
         const gameSet = args.join(" ");
+if (message.content === '!setgame') {
+    message.reply('Please provide a game for me to play!');
+}
         client.user.setPresence({ game: { name: gameSet, type: 0} });
         message.reply('Game set to: **' + (gameSet) + '**!')
     }
