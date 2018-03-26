@@ -27,8 +27,9 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
     const gameSet = args.join(" ");
     if (command === '!setgame') {
-        if (gameSet === 'reset' || message.content === '!setgame ') {
+        if (gameSet === 'reset' || message.content === '!setgame') {
             message.reply('Game has been reset!')
+            client.user.setPresence({ game: { name: null, type: 0} });
         } else {
             client.user.setPresence({ game: { name: gameSet, type: 0} });
             message.reply('Game set to: **' + (gameSet) + '**');
