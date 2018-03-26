@@ -23,6 +23,7 @@ client.on('ready', () => {
 
 // Set Game
 client.on('message', message => {
+    const args = message.content.slice(process.prefix).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
     if (command === '!setgame') {
         client.user.setPresence({ game: { name: 'with Kat', type: 0} });
