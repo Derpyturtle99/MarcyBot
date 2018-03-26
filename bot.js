@@ -42,11 +42,12 @@ client.on('message', message => {
 
 // Purge Command
     if (command === '!purge') {
-      const deleteCount = parseInt(args[0], 10);
-      if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-       return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
-     message.channel.bulkDelete(deleteCount)
-      .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+        const deleteCount = parseInt(args[0], 10);
+        if(!deleteCount || deleteCount < 2 || deleteCount > 100)
+        return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
+        message.delete().catch(O_o=>{});
+        message.channel.bulkDelete(deleteCount)
+        .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
 
 // Say Command
