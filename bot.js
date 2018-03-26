@@ -3,12 +3,6 @@ const client = new Discord.Client();
 
 // Variables / Functions
 
-// Status
-client.on("ready", () => {
-    console.log("online");
-    client.user.setPresence({ game: { name: 'with Kat', type: 0} });
-});
-
 // flipcoin function
 function doCoinFlip() {
     var coinAnswer = ['Heads', 'Tails'];
@@ -27,6 +21,17 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
+// Set Game
+client.on('message', message => {
+    if(message.author.bot) return;
+    const args = message.content.slice(process.prefix).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    if (command === !setgame') {
+        const gameMessage = args.join(" ");
+        client.user.setPresence({ game: { name: `$(gameMessage)`, type: 0} });
+    }
+});
+
 // Purge Command
 client.on('message', message => {
     if(message.author.bot) return;
@@ -39,14 +44,6 @@ client.on('message', message => {
     message.channel.bulkDelete(deleteCount)
         .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
-});
-
-// Nuzzle Command
-client.on('message', message => {
-    if (message.content === '!nuzzle') {
-        message.delete().catch(O_o=>{})
-        message.reply('*nuzzles* UwU');
-   }
 });
 
 // Beep, Boop Command
@@ -81,5 +78,6 @@ client.on('message', message => {
         message.reply(doCoinFlip() + '!');
     }
 });
+
 
 client.login(process.env.BOT_TOKEN);
