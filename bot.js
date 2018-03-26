@@ -21,7 +21,7 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-// Set Game
+
 client.on('message', message => {
     if(message.author.bot) return;
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
@@ -65,7 +65,7 @@ client.on('message', message => {
     }
 });
     
-// Dice
+// Dice Command
 client.on('message', message => {
     if (message.content === '!dice') {
         message.reply(doDice() + '!');
