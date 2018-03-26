@@ -23,11 +23,7 @@ client.on('ready', () => {
 
 // Set Game
 client.on('message', message => {
-    if(message.author.bot) return;
-    const args = message.content.slice(process.prefix).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-    if (command === !setgame') {
-        const gameMessage = args.join(" ");
+    if (message.content === 'setgame') {
         client.user.setPresence({ game: { name: 'hello', type: 0} });
     }
 });
