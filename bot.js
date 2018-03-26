@@ -1,5 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+client.on('ready', () => {
+    console.log('I am ready!');
+});
 
 // Variables / Functions
 
@@ -16,16 +19,17 @@ function doDice() {
 }
 
 // Commands
-
-client.on('ready', () => {
-    console.log('I am ready!');
-});
+client.on('message', message => {
+// ignore bots
+    if(message.author.bot) return;
+// var args
+    const args = message.content.slice(process.prefix).trim().split(/ +/g);
+// var "command" config
+    const command = args.shift().toLowerCase();
+// var "gameSet" config
+    const gameSet = args.join(" ");
 
 // Set Game
-client.on('message', message => {
-    const args = message.content.slice(process.prefix).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
-    const gameSet = args.join(" ");
     if (command === '!setgame') {
         if (gameSet === 'reset' || message.content === '!setgame') {
             message.reply('Game has been reset!')
@@ -35,54 +39,32 @@ client.on('message', message => {
             message.reply('Game set to: **' + (gameSet) + '**');
         }
     }
-});
 
 // Purge Command
-client.on('message', message => {
-    if(message.author.bot) return;
-    const args = message.content.slice(process.prefix).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
     if (command === '!purge') {
-        const deleteCount = parseInt(args[0], 10);
-        if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-      return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
-    message.channel.bulkDelete(deleteCount)
-        .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
+      const deleteCount = parseInt(args[0], 10);
+      if(!deleteCount || deleteCount < 2 || deleteCount > 100)
+       return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
+     message.channel.bulkDelete(deleteCount)
+      .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
-});
-
-// Beep, Boop Command
-client.on('message', message => {
-    if (message.content === '!beep') {
-        message.channel.send('boop!');
-    }
-});
 
 // Say Command
-client.on('message', message => {
-    if(message.author.bot) return;
-    const args = message.content.slice(process.prefix).trim().split(/ +/g);
-    const command = args.shift().toLowerCase();
     if (command === '!say') {
-        const sayMessage = args.join(" ");
-        message.delete().catch(O_o=>{}); 
-        message.channel.send(sayMessage);
+       const sayMessage = args.join(" ");
+      message.delete().catch(O_o=>{}); 
+      message.channel.send(sayMessage);
     }
-});
     
 // Dice Command
-client.on('message', message => {
     if (message.content === '!dice') {
-        message.reply(doDice() + '!');
+       message.reply(doDice() + '!');
     }
-});
     
 // Coin Flip Command
-client.on('message', message => {
     if (message.content === '!cf') {
-        message.reply(doCoinFlip() + '!');
+      message.reply(doCoinFlip() + '!');
     }
+    
 });
-
-
 client.login(process.env.BOT_TOKEN);
