@@ -28,6 +28,7 @@ client.on('message', message => {
     if (command === '!setgame') {
         const gameSet = args.join(" ");
         client.user.setPresence({ game: { name: gameSet, type: 0} });
+        message.reply(`Game set to $(gameSet)!`)
     }
 });
 
