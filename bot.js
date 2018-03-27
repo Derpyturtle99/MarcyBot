@@ -35,7 +35,8 @@ client.on('message', message => {
 // Help Command
     if (command === '!help') {
         const embed = new Discord.RichEmbed()
-        .addField("Test Title", "Test Description")
+        .addField("List of Commands", "!help - Brings up this dialog")
+        .setcolor(0x00FFFF)
         message.channel.sendEmbed(embed);
     };
     
