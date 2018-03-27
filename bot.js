@@ -43,7 +43,7 @@ client.on('message', message => {
         .addField("Coinflip (!cf)", "flips a coin, heads or tails!")
         .setColor(0x00FFFF)
         .setFooter('Use !help [command] for more information! All commands use the prefix "!"')
-        .setThumbnail(message.author.avatarURL)
+        .setThumbnail(message.channel.send({file: "https://cdn.discordapp.com/attachments/426940712345534465/428038594440069121/help.png"}))
         message.channel.sendEmbed(embed);
     };
     
