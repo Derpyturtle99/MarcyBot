@@ -82,7 +82,7 @@ client.on('message', message => {
     }
     
 // Coin Flip Command
-    if (command === '!cf') {
+    if (command === '!cf' || command === '!coinflip') {
       message.reply(doCoinFlip() + '!');
     }
     
