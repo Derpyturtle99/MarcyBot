@@ -18,7 +18,7 @@ function doDice() {
     return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
 }
 
-// Commands
+// COMMANDS
 client.on('message', message => {
 // ignore bots
     if(message.author.bot) return;
@@ -32,6 +32,13 @@ client.on('message', message => {
     let rolePermission = message.guild.roles.find("name", "🔑");
     if (!message.member.roles.has(rolePermission.id)) return;
 
+// Help Command
+    if (command === '!help') {
+        const embed = new Discord.RichEmbed()
+        .addField("Test Title", "Test Description")
+        message.channel.sendEmbed(embed);
+    };
+    
 // Set Game
     if (command === '!setgame') {
         if (gameSet === 'reset' || message.content === '!setgame') {
