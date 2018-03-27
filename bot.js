@@ -29,7 +29,8 @@ client.on('message', message => {
 // var "gameSet" config
     const gameSet = args.join(" ");
 // role perms only
-    if(!message.member.roles.some(r=>["🔑"].includes(r.name)) )
+    let rolePermission = message.guild.roles.find("name", "🔑");
+    if (!message.member.roles.has(rolePermission.id)) return;
 
 // Set Game
     if (command === '!setgame') {
@@ -60,12 +61,12 @@ client.on('message', message => {
     }
     
 // Dice Command
-    if (message.content === '!dice') {
+    if (command === '!dice') {
        message.reply(doDice() + '!');
     }
     
 // Coin Flip Command
-    if (message.content === '!cf') {
+    if (command === '!cf') {
       message.reply(doCoinFlip() + '!');
     }
     
