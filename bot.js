@@ -42,6 +42,10 @@ client.on('message', message => {
             message.reply('Game set to: **' + (gameSet) + '**');
         }
     }
+    
+// DM User Command
+    if (command === '!dm') {
+        
 
 // Purge Command
     if (command === '!purge') {
@@ -49,7 +53,7 @@ client.on('message', message => {
         if(!deleteCount || deleteCount < 2 || deleteCount > 100)
         return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
         message.delete().catch(O_o=>{});
-        message.channel.bulkDelete(deleteCount)
+        .then(message.channel.bulkDelete(deleteCount))
         .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
 
