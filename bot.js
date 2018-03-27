@@ -35,6 +35,7 @@ client.on('message', message => {
 // Help Command
     if (command === '!help') {
         const embed = new Discord.RichEmbed()
+        .addField("Help (!help [?])", "Brings up the command list")
         .addField("Purge (!purge [#])", "Deletes messages in bulk")
         .addField("Say (!say [text])", "Makes me say something!")
         .addField("Setgame (!setgame [game])", "Sets my the game I'm playing to whatever you want!")
@@ -42,6 +43,7 @@ client.on('message', message => {
         .addField("Coinflip (!cf)", "flips a coin, heads or tails!")
         .setColor(0x00FFFF)
         .setFooter('Use !help [command] for more information! All commands use the prefix "!"')
+        .setThumbnail(message.author.avatarURL)
         message.channel.sendEmbed(embed);
     };
     
