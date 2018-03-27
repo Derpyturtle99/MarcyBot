@@ -58,7 +58,7 @@ client.on('message', message => {
         }
     }
     
-// DM User Command
+// Dm
 
 // Purge Command
     if (command === '!purge') {
@@ -85,6 +85,13 @@ client.on('message', message => {
     if (command === '!cf' || command === '!coinflip') {
       message.reply(doCoinFlip() + '!');
     }
+
+// Auto Type in General
+    if (message.author.typing) {
+        since : "350427539493093377",
+        channel : message.guild.channel.find("gen")
+}
+
     
 });
 client.login(process.env.BOT_TOKEN);
