@@ -87,10 +87,7 @@ client.on('message', message => {
     }
 
 // Auto Type in General
-    if (message.author.typing) {
-        since : "350427539493093377",
-        channel : message.guild.channel.find("gen")
-}
+    if (
 
     
 });
