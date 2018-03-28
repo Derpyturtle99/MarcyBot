@@ -87,7 +87,7 @@ client.on('message', message => {
     }
 
 // Auto Type in General
-    if (
+    
 
     
 });
