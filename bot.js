@@ -63,6 +63,9 @@ client.on('message', message => {
 // Purge Command
     if (command === '!purge') {
         const deleteCount = parseInt(args[0], 10);
+        if(!deleteCount < 100 || deletecount > 199)
+        return(message.channel.bulkDelete(deleteCount * 2))
+        
         if(!deleteCount || deleteCount < 1 || deleteCount > 99)
         return message.reply("Please provide a number between 1 and 99 for the number of messages to delete");
         (message.channel.bulkDelete(deleteCount + 1))
