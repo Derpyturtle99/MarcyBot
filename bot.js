@@ -63,8 +63,8 @@ client.on('message', message => {
 // Purge Command
     if (command === '!purge') {
         const deleteCount = parseInt(args[0], 10);
-        if(!deleteCount || deleteCount < 1 || deleteCount > 101)
-        return message.reply("Please provide a number between 1 and 100 for the number of messages to delete");
+        if(!deleteCount || deleteCount < 1 || deleteCount > 99)
+        return message.reply("Please provide a number between 1 and 99 for the number of messages to delete");
         (message.channel.bulkDelete(deleteCount + 1))
         .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
@@ -87,7 +87,9 @@ client.on('message', message => {
     }
 
 // Auto Type in General
-    
+    if (command === !type') {
+        message.channel.typing()
+    }
 
     
 });
