@@ -89,10 +89,7 @@ client.on('message', message => {
       message.reply(doCoinFlip() + '!');
     }
 
-// Auto Type in General
-    if (command === !type') {
-        message.channel.typing()
-    }
+// Typing
 
     
 });
