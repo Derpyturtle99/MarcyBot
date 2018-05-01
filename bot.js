@@ -18,6 +18,9 @@ function doDice() {
     return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
 }
 
+// join function
+
+
 // COMMANDS
 client.on('message', message => {
 // ignore bots
