@@ -21,7 +21,7 @@ function doDice() {
 // join function
     if (command === 'join') {
         const guildMember = message.member;
-guildMember.addRole(message.guild.roles.find("name, "Community");
+       guildMember.addRole(message.guild.roles.find("name", "Community");
 }
 
 // COMMANDS
