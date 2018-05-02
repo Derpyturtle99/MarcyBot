@@ -22,7 +22,7 @@ function doDice() {
 
 client.on('message', message => {
     if (message.content = 'join') {
-        message.channel.delete()
+        message.delete()
     }
 });
 
