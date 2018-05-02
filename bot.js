@@ -23,8 +23,7 @@ function doDice() {
 client.on('message', message => {
           if (message.content === 'join') 
 {
-       const guildMember  = message.member;
-          guildMember.addRole(message.guild.roles.find("name", "Community");
+
        }
 });
 
