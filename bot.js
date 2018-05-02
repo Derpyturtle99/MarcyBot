@@ -18,12 +18,14 @@ function doDice() {
     return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
 }
 
-// join function
+// 'join' accept tos function
 client.on('message', message => {
+    if (message.channel.id === '432237954514026498') {
     if (message.content === 'join') {
         const guildMember = message.member;
 let roleName = message.guild.roles.find("name", "Community");
   guildMember.addRole(roleName);
+         }
     }
 });
 
