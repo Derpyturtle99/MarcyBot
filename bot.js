@@ -21,7 +21,7 @@ function doDice() {
 // join function
 client.on('message', message => {
     if (message.content === 'join') {
-        message.reply('ok');
+        message.delete();
     }
 });
 
