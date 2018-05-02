@@ -21,10 +21,13 @@ function doDice() {
 // 'join' accept tos function
 client.on('message', message => {
     if (message.channel.id === '432237954514026498') {
-    if (message.content === 'join') {
+    if (message.content !== '!join') {
+        return message.delete();
+    }
+    if (message.content === '!join') {
         const guildMember = message.member;
-let roleName = message.guild.roles.find("name", "Community");
-  guildMember.addRole(roleName);
+         let roleName = message.guild.roles.find("name", "Community");
+        guildMember.addRole(roleName);
          message.delete();
          }
     }
