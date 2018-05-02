@@ -19,10 +19,14 @@ function doDice() {
 }
 
 // join function
-    if (command === 'join') {
-        const guildMember = message.member;
+     
+client.on('message', message => {
+    if (message.content === 'join') 
+{
+       const guildMember = message.member;
        guildMember.addRole(message.guild.roles.find("name", "Community");
 }
+});
 
 // COMMANDS
 client.on('message', message => {
