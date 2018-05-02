@@ -21,7 +21,8 @@ function doDice() {
 // join function
 client.on('message', message => {
     if (message.content === 'join') {
-        message.delete();
+        const guildMember = message.member;
+  guildMember.addRole('Community');
     }
 });
 
