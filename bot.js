@@ -90,6 +90,11 @@ client.on('message', message => {
       message.delete().catch(O_o=>{}); 
       message.channel.send(sayMessage);
     }
+
+// Delete Channel Command
+    if (command === '!deletechannel') {
+        message.channel.delete()
+    }
     
 // Dice Command
     if (command === '!dice') {
