@@ -19,7 +19,11 @@ function doDice() {
 }
 
 // join function
-
+client.on('message', message => {
+    if (command === '!join') {
+        message.delete()
+       }
+});
 
 
 // COMMANDS
