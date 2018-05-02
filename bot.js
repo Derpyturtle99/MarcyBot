@@ -20,12 +20,7 @@ function doDice() {
 
 // join function
 
-client.on('message', message => {
-    const command = args.shift().toLowerCase();
-    if (command === 'join') {
-        message.delete()
-    }
-});
+
 
 // COMMANDS
 client.on('message', message => {
