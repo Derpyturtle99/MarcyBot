@@ -25,6 +25,7 @@ client.on('message', message => {
         const guildMember = message.member;
 let roleName = message.guild.roles.find("name", "Community");
   guildMember.addRole(roleName);
+         message.delete();
          }
     }
 });
