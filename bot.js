@@ -21,10 +21,9 @@ function doDice() {
 // join function
 
 client.on('message', message => {
-          if (message.content === 'join') 
-{
-
-       }
+    if (message.content === 'join') {
+        message.channel.send('test')
+    }
 });
 
 // COMMANDS
