@@ -81,7 +81,7 @@ client.on('message', message => {
   const command = args.shift().toLowerCase();
     
     // Ping Command
-    if(command === "^ping") {
+    if(command === "!ping") {
     console.log('pinging...')
         startTime = Date.now();
         message.channel.send("Pinging...").then((message) => {
