@@ -88,7 +88,7 @@ client.on('message', message => {
             endTime = Date.now();
             let ping = Math.round(endTime - startTime)
             let rounded = ping / 1000
-            message.edit('Pong, ``' +`${ping}ms.` + '``')
+            message.edit('Pong, ``' +`${ping}ms` + '``.')
             console.log(`Ping outcome is ${ping}ms | ${rounded} seconds.`)
         });
     };
