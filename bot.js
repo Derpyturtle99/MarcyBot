@@ -4,110 +4,168 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-// Variables / Functions
-
-// flipcoin function
-function doCoinFlip() {
-    var coinAnswer = ['Heads', 'Tails'];
-    return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
-}
-
-// dice function
-function doDice() {
-    var diceAnswer = ['1', '2', '3', '4', '5', '6'];
-    return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
-}
-
-// 'join' accept tos function
+// CONFIG COMMANDS
 client.on('message', message => {
-    if (message.channel.id === '432237954514026498') {
-    if (message.content !== '!join') {
-        return message.delete();
-    }
-    if (message.content === '!join') {
-        const guildMember = message.member;
-         let roleName = message.guild.roles.find("name", "Community");
-        guildMember.addRole(roleName);
-         message.delete();
-         }
-    }
-});
-
-// COMMANDS
-client.on('message', message => {
-// ignore bots
-    if(message.author.bot) return;
-// var args
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
-// var "command" config
     const command = args.shift().toLowerCase();
-// var "gameSet" config
-    const gameSet = args.join(" ");
-// role perms only
-    let rolePermission = message.guild.roles.find("name", "🔑");
-    if (!message.member.roles.has(rolePermission.id)) return;
-
-// Help Command
-    if (command === '!help') {
-        const embed = new Discord.RichEmbed()
-        .addField("Help (!help [?])", "Brings up the command list")
-        .addField("Purge (!purge [#])", "Deletes messages in bulk")
-        .addField("Say (!say [text])", "Makes me say something!")
-        .addField("Setgame (!setgame [game])", "Sets my the game I'm playing to whatever you want!")
-        .addField("Dice (!dice)", "Rolls a number between 1 and 6")
-        .addField("Coinflip (!cf)", "flips a coin, heads or tails!")
-        .setColor(0x00FFFF)
-        .setFooter('Use !help [command] for more information! All commands use the prefix "!"')
-        .setThumbnail("https://cdn.discordapp.com/attachments/426940712345534465/428038594440069121/help.png")
-        message.channel.sendEmbed(embed);
+    if(message.author.id !== "350427539493093377") return;
+    
+    // Wait function
+    function wait(ms){
+        var start = new Date().getTime();
+        var end = start;
+        while(end < start + ms) {
+        end = new Date().getTime();
+        }
+   };
+    
+    // Restart Bot
+    if (command === '$restart') {
+        console.log('Restart Requested')
+        client.destroy()
+        .then(client.login(process.env.BOT_TOKEN))
+        .then(client.on('ready', () => {
+            client.user.setPresence({ game: { name: 'Starting Up...', type: 1} });
+            wait(2000);
+            client.user.setPresence({ game: { name: null, type: 0} });
+        }))
     };
     
-// Set Game
-    if (command === '!setgame') {
-        if (gameSet === 'reset' || message.content === '!setgame') {
-            message.reply('Game has been reset!')
+    // Set Game
+    if (command === '$game') {
+        const gameSet = args.join(" ");
+        if (gameSet === 'reset' || message.content === '$game') {
+            message.reply('Game has been reset.')
             client.user.setPresence({ game: { name: null, type: 0} });
         } else {
             client.user.setPresence({ game: { name: gameSet, type: 0} });
             message.reply('Game set to: ``' + (gameSet) + '``');
         }
-    }
+    };
     
-// Dm
-
-// Purge Command
-    if (command === '!purge') {
-        const deleteCount = parseInt(args[0], 10);
-        if(!deleteCount || deleteCount < 1 || deleteCount > 99)
-        return message.reply("Please provide a number between 1 and 99 for the number of messages to delete");
-        (message.channel.bulkDelete(deleteCount + 1))
-        .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
-    }
-
-// Say Command
-    if (command === '!say') {
-       const sayMessage = args.join(" ");
+    // Set Status
+    if  (command === '$status') {
+        const statusSet = args.join(" ");
+        if (statusSet === 'reset' || statusSet === 'online' || message.content === '$status') {
+            message.reply('Status set to: ``' + 'online' + '``')
+            return client.user.setPresence({ status: 'online' });
+        }
+        if (statusSet === 'idle') {
+            message.reply('Status set to: ``' + (statusSet) + '``');
+            return client.user.setPresence({ status: 'idle' });
+        }
+        if (statusSet === 'dnd') {
+            message.reply('Status set to: ``' + (statusSet) + '``');
+            return client.user.setPresence({ status: 'dnd' });
+        }
+        if (statusSet === 'offline' || statusSet === 'invisible') {
+            message.reply('Status set to: ``' + (statusSet) + '``');
+            return client.user.setPresence({ status: 'invisible' });
+        } else {
+            message.reply('Please specify a status.')
+        }
+    };
+    
+      // Say Command
+  if (command === '$say') {
+      const sayMessage = args.join(" ");
       message.delete().catch(O_o=>{}); 
       message.channel.send(sayMessage);
     }
-
-// Delete Channel Command
-    if (command === '!deletechannel') {
-        message.channel.delete()
+    
+});
+// COMMANDS
+client.on('message', message => {
+  if(message.author.bot) return;
+  const args = message.content.slice(process.prefix).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+    
+    // Ping Command
+    if(command === "$ping") {
+    console.log('pinging...')
+        startTime = Date.now();
+        message.channel.send("Pinging...").then((message) => {
+            endTime = Date.now();
+            let ping = Math.round(endTime - startTime)
+            let rounded = ping / 1000
+            message.edit(`${ping}ms | ${rounded} seconds.`)
+            console.log(`Ping outcome is ${ping}ms | ${rounded} seconds.`)
+        });
+    };
+    
+    // Dice Command
+    if (command === '$dice') {
+        function doDice() {
+        var diceAnswer = ['1', '2', '3', '4', '5', '6'];
+        return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
+        }
+        message.reply(doDice() + '.');
     }
     
-// Dice Command
-    if (command === '!dice') {
-       message.reply(doDice() + '!');
+    // Coinflip Command
+      if (command === '$cf' || command === '$coinflip') {
+          function doCoinFlip() {
+          var coinAnswer = ['Heads', 'Tails'];
+          return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
+          }
+          message.reply(doCoinFlip() + '.');
+      }
+    
+    // 8 Ball Command
+    if (command === '$8ball') {
+        function doBall() {
+            var ballAnswer = ["It is certain", "It is decidedly so", "Without a doubt", "Yes definitely", "You may rely on it", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
+            return ballAnswer[Math.floor(Math.random()*ballAnswer.length)];
+        }
+        if (message.content === '$8ball') {
+            return message.reply('Please specify your question.');
+        }
+        message.reply(doBall() + '.');
+    };
+  
+    // Avatar Command
+    if (command === '$avatar') {
+        let user = message.mentions.users.first();
+        const unmentionedEmbed = new Discord.RichEmbed()
+        .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
+        .setImage(message.author.avatarURL)
+        .setColor(0x9999FF)
+        if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
+        const mentionedEmbed = new Discord.RichEmbed()
+        .setTitle(`${user.username}#${user.discriminator}'s avatar`)
+        .setImage(user.avatarURL)
+        .setColor(0x9999FF)
+        .setFooter("Requested by: " + `${message.author.username}#${message.author.discriminator}`)
+        message.channel.sendEmbed(mentionedEmbed);
     }
     
-// Coin Flip Command
-    if (command === '!cf' || command === '!coinflip') {
-      message.reply(doCoinFlip() + '!');
-    }
-
-// Typing
-
+    // User Info Command
+  if (command === '$info') {
+      const memberGame = message.author.presence.game;
+      const unmentionedEmbed = new Discord.RichEmbed()
+      .setTitle(`${message.author.username}#${message.author.discriminator}`)
+      .addField("Status:", message.author.presence.status)
+      .addField("Bot:", message.author.bot)
+      .addField("Playing:", memberGame !== null ? memberGame.name : "none", true)
+      .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
+      .addField("Account Creation Date:", message.author.createdAt)
+      .setColor(0x9999FF)
+      .setFooter('Join dates may not be accurate if the member has rejoined')
+      if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
+      // if member has been mentioned
+      let user = message.mentions.users.first();
+      const userGame = user.presence.game;
+      const mentionedEmbed = new Discord.RichEmbed()
+      .setTitle(`${user.username}#${user.discriminator}`)
+      .addField("Status:", user.presence.status)
+      .addField("Bot:", user.bot)
+      .addField("Playing:", userGame !== null ? userGame.name : "none", true)
+      .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
+      .addField("Account Creation Date:", user.createdAt)
+      .setColor(0x9999FF)
+      .setFooter('Join dates may not be accurate if the member has rejoined')
+      message.channel.sendEmbed(mentionedEmbed);
+  }
     
 });
 client.login(process.env.BOT_TOKEN);
