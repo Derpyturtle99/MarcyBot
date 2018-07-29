@@ -20,7 +20,7 @@ client.on('message', message => {
    };
     
     // Restart Bot
-    if (command === '$restart') {
+    if (command === '?restart') {
         console.log('Restart Requested')
         client.destroy()
         .then(client.login(process.env.BOT_TOKEN))
@@ -32,9 +32,9 @@ client.on('message', message => {
     };
     
     // Set Game
-    if (command === '$game') {
+    if (command === '?game') {
         const gameSet = args.join(" ");
-        if (gameSet === 'reset' || message.content === '$game') {
+        if (gameSet === 'reset' || message.content === '?game') {
             message.reply('Game has been reset.')
             client.user.setPresence({ game: { name: null, type: 0} });
         } else {
@@ -44,9 +44,9 @@ client.on('message', message => {
     };
     
     // Set Status
-    if  (command === '$status') {
+    if  (command === '?status') {
         const statusSet = args.join(" ");
-        if (statusSet === 'reset' || statusSet === 'online' || message.content === '$status') {
+        if (statusSet === 'reset' || statusSet === 'online' || message.content === '?status') {
             message.reply('Status set to: ``' + 'online' + '``')
             return client.user.setPresence({ status: 'online' });
         }
@@ -67,7 +67,7 @@ client.on('message', message => {
     };
     
       // Say Command
-  if (command === '$say') {
+  if (command === '?say') {
       const sayMessage = args.join(" ");
       message.delete().catch(O_o=>{}); 
       message.channel.send(sayMessage);
@@ -81,7 +81,7 @@ client.on('message', message => {
   const command = args.shift().toLowerCase();
     
     // Ping Command
-    if(command === "$ping") {
+    if(command === "?ping") {
     console.log('pinging...')
         startTime = Date.now();
         message.channel.send("Pinging...").then((message) => {
@@ -94,7 +94,7 @@ client.on('message', message => {
     };
     
     // Dice Command
-    if (command === '$dice') {
+    if (command === '?dice') {
         function doDice() {
         var diceAnswer = ['1', '2', '3', '4', '5', '6'];
         return diceAnswer[Math.floor(Math.random()*diceAnswer.length)];
@@ -103,7 +103,7 @@ client.on('message', message => {
     }
     
     // Coinflip Command
-      if (command === '$cf' || command === '$coinflip') {
+      if (command === '?cf' || command === '?coinflip') {
           function doCoinFlip() {
           var coinAnswer = ['Heads', 'Tails'];
           return coinAnswer[Math.floor(Math.random()*coinAnswer.length)];
@@ -112,7 +112,7 @@ client.on('message', message => {
       }
     
     // 8 Ball Command
-    if (command === '$8ball') {
+    if (command === '?8ball') {
         function doBall() {
             var ballAnswer = ["It is certain", "It is decidedly so", "Without a doubt", "Yes definitely", "You may rely on it", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
             return ballAnswer[Math.floor(Math.random()*ballAnswer.length)];
@@ -124,7 +124,7 @@ client.on('message', message => {
     };
   
     // Avatar Command
-    if (command === '$avatar') {
+    if (command === '?avatar') {
         let user = message.mentions.users.first();
         const unmentionedEmbed = new Discord.RichEmbed()
         .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
@@ -140,7 +140,7 @@ client.on('message', message => {
     }
     
     // User Info Command
-  if (command === '$info') {
+  if (command === '?info') {
       const memberGame = message.author.presence.game;
       const unmentionedEmbed = new Discord.RichEmbed()
       .setTitle(`${message.author.username}#${message.author.discriminator}`)
