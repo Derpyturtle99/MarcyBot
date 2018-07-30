@@ -25,25 +25,11 @@ client.on('message', message => {
         client.destroy()
         .then(client.login(process.env.BOT_TOKEN))
         .then(client.on('ready', () => {
-
-
             wait(3000);
-            
 client.user.setPresence({ status: 'online' });
 client.user.setPresence({ game: { name: null, type: 0} });
         }))
     };
-    
-
-    // Off Command
-    if (command === '~lock') {
-        message.channel.send('Locked.');
-    }
-
-    // Delete last bot message
-    if (command ==='~dellast') {
-        message.delete(message.bot);
-        };
 
     // Set Game
     if (command === '~game') {
