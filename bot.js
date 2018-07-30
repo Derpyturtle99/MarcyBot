@@ -39,7 +39,7 @@ client.on('message', message => {
             client.user.setPresence({ game: { name: null, type: 0} });
         } else {
             client.user.setPresence({ game: { name: gameSet, type: 0} });
-            message.reply('Game set to: ``playing ' + (gameSet) + '``');
+            message.reply('Game set to: ``Playing ' + (gameSet) + '``');
         }
     };
     
