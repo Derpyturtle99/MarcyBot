@@ -40,6 +40,11 @@ client.user.setPresence({ game: { name: null, type: 0} });
         message.channel.send('Locked.');
     }
 
+    // Delete last bot message
+    if (command ==='~dellast') {
+        message.delete(message.author.bot);
+        };
+
     // Set Game
     if (command === '~game') {
         const gameSet = args.join(" ");
