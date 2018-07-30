@@ -26,11 +26,11 @@ client.on('message', message => {
         .then(client.login(process.env.BOT_TOKEN))
         .then(client.on('ready', () => {
             client.user.setPresence({ game: { name: 'Starting Up...', type: 1} });
-client.user.setPresence({ status: 'idle' });
             wait(2000);
-            client.user.setPresence({ game: { name: null, type: 0} });
-        }))
+            
 client.user.setPresence({ status: 'online' });
+client.user.setPresence({ game: { name: null, type: 0} });
+        }))
     };
     
 
