@@ -42,7 +42,8 @@ client.user.setPresence({ game: { name: null, type: 0} });
 
     // Delete last bot message
     if (command ==='~dellast') {
-        message.delete(message.author.id('383059395484844032'));
+        let user = message.author.id('383059395484844032')
+        message.delete(message.user);
         };
 
     // Set Game
