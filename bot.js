@@ -149,7 +149,6 @@ client.on('message', message => {
       .addField("Most Recent Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
-      .setFooter('Join dates may not be accurate if the member has rejoined.')
       if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
       // if member has been mentioned
       let userA = message.mentions.users.first();
@@ -161,7 +160,6 @@ client.on('message', message => {
       .addField("Most Recent Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", userA.createdAt)
       .setColor(0x9999FF)
-      .setFooter('Join dates may not be accurate if the member has rejoined.')
       message.channel.sendEmbed(mentionedEmbed);
   }
     
