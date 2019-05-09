@@ -155,8 +155,9 @@ client.on('message', message => {
       // if member has been mentioned
       let userA = message.mentions.users.first();
       const userGame = userA.presence.game;
+      console.log(userA);
       const mentionedEmbed = new Discord.RichEmbed()
-      console.log(userA)
+      
       .setAuthor(`${userA.username}#${userA.discriminator}`, userA.AvatarURL)
       .addField("Status:", userA.presence.status)
       .addField("Bot:", userA.bot)
