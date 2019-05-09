@@ -153,7 +153,9 @@ client.on('message', message => {
       .setFooter('Join dates may not be accurate if the member has rejoined.')
       if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
       // if member has been mentioned
-      let userA = message.mentions.users.first() || message.guild.members.get(args[0]);
+      let userA = message.mentions.users.first();
+      userA = message.guild.members.get(args.slice(0, 1).join(' '));
+      userA = userA.user;
       const userGame = userA.presence.game;
       const mentionedEmbed = new Discord.RichEmbed()
       .setAuthor(`${userA.username}#${userA.discriminator}`, userA.avatarURL)
