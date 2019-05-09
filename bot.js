@@ -86,6 +86,7 @@ client.on('message', message => {
         .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
         .setAuthor(`${message.author.username}#${message.author.discriminator}'s avatar`, message.author.avatarURL)
         message.channel.sendEmbed(embedtest);
+    });
     
     // Ping Command
     if(command === "~ping") {
