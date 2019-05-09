@@ -93,14 +93,6 @@ client.on('message', message => {
         });
     };
     
-        // Test
-    if(command === "~test") {
-        let embedtest = new Discord.RichEmbed()
-        .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
-        .setAuthor(`${message.author.username}#${message.author.discriminator}'s avatar`, message.author.avatarURL)
-        message.channel.sendEmbed(embedtest);
-    }
-    
     // Dice Command
     if (command === '~dice') {
         function doDice() {
@@ -151,7 +143,7 @@ client.on('message', message => {
   if (command === '~info') {
       const memberGame = message.author.presence.game;
       const unmentionedEmbed = new Discord.RichEmbed()
-      .setAuthor(`${message.author.username}#${message.author.discriminator}'s avatar`, message.author.avatarURL)
+      .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
       .addField("Playing:", memberGame !== null ? memberGame.name : "none", true)
@@ -164,7 +156,7 @@ client.on('message', message => {
       let user = message.mentions.users.first();
       const userGame = user.presence.game;
       const mentionedEmbed = new Discord.RichEmbed()
-      .setAuthor(`${user.username}#${user.discriminator}`, message.author.avatarURL)
+      .setAuthor(`${user.username}#${user.discriminator}`, message.user.avatarURL)
       .addField("Status:", user.presence.status)
       .addField("Bot:", user.bot)
       .addField("Playing:", userGame !== null ? userGame.name : "none", true)
