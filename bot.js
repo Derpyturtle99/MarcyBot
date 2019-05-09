@@ -129,7 +129,7 @@ client.on('message', message => {
             var rpsAnswer = ["Rock", "Paper" "Scissors"];
             return rpsAnswer[Math.floor(Math.random()*ballAnswer.length)];
         }
-        if (message.content === '~8ball' || !'~8ball rock' || !'~8ball paper' || !'~8ball scissors') {
+        if (message.content === '~8ball') {
             return message.reply('Please specify your handsign.');
         }
         message.reply(doRps() + '.');
