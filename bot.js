@@ -151,11 +151,11 @@ client.on('message', message => {
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
       .setFooter('Join dates may not be accurate if the member has rejoined.')
-      if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
+      if (message.guild.members.get(args.slice(0, 1).join(' ')) < 1) return message.channel.sendEmbed(unmentionedEmbed)
       // if member has been mentioned
       let userA = message.mentions.users.first();
       userA = message.guild.members.get(args.slice(0, 1).join(' '));
-      userA = userA.user;
+      userA = user.userA;
       const userGame = userA.presence.game;
       const mentionedEmbed = new Discord.RichEmbed()
       .setAuthor(`${userA.username}#${userA.discriminator}`, userA.avatarURL)
