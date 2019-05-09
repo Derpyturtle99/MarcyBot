@@ -155,7 +155,6 @@ client.on('message', message => {
       // if member has been mentioned
       let userA = message.mentions.users.first();
       userA = message.guild.members.get(args.slice(0, 1).join(' '));
-      userA = user.userA;
       const userGame = userA.presence.game;
       const mentionedEmbed = new Discord.RichEmbed()
       .setAuthor(`${userA.username}#${userA.discriminator}`, userA.avatarURL)
