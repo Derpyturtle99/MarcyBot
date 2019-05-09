@@ -80,14 +80,6 @@ client.on('message', message => {
   const args = message.content.slice(process.prefix).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
     
-    // Test
-    if(command === "~test") {
-        let embedtest = new Discord.RichEmbed()
-        .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
-        .setAuthor(`${message.author.username}#${message.author.discriminator}'s avatar`, message.author.avatarURL)
-        message.channel.sendEmbed(embedtest);
-    });
-    
     // Ping Command
     if(command === "~ping") {
     console.log('pinging...')
