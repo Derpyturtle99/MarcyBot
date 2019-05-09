@@ -80,6 +80,13 @@ client.on('message', message => {
   const args = message.content.slice(process.prefix).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
     
+    // Test
+    if(command === "~test") {
+        let embedtest = new Discord.RichEmbed()
+        .setTitle(`${message.author.username}#${message.author.discriminator}'s avatar`)
+        .setAuthor(`${message.author.username}#${message.author.discriminator}'s avatar`, message.author.avatarURL)
+        message.channel.sendEmbed(embedtest);
+    
     // Ping Command
     if(command === "~ping") {
     console.log('pinging...')
@@ -150,7 +157,7 @@ client.on('message', message => {
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", message.author.createdAt)
       .setColor(0x9999FF)
-      .setFooter('Join dates may not be accurate if the member has rejoined')
+      .setFooter('Join dates may not be accurate if the member has rejoined.')
       if (message.mentions.users.size < 1) return message.channel.sendEmbed(unmentionedEmbed)
       // if member has been mentioned
       let user = message.mentions.users.first();
@@ -163,7 +170,7 @@ client.on('message', message => {
       .addField("Guild Join Date:", message.guild.joinedAt.toDateString())
       .addField("Account Creation Date:", user.createdAt)
       .setColor(0x9999FF)
-      .setFooter('Join dates may not be accurate if the member has rejoined')
+      .setFooter('Join dates may not be accurate if the member has rejoined.')
       message.channel.sendEmbed(mentionedEmbed);
   }
     
