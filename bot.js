@@ -151,7 +151,7 @@ client.on('message', message => {
   if (command === '~info') {
       const memberGame = message.author.presence.game;
       const unmentionedEmbed = new Discord.RichEmbed()
-      .setTitle(`${message.author.username}#${message.author.discriminator}`)
+      .setAuthor(`${message.author.username}#${message.author.discriminator}'s avatar`, message.author.avatarURL)
       .addField("Status:", message.author.presence.status)
       .addField("Bot:", message.author.bot)
       .addField("Playing:", memberGame !== null ? memberGame.name : "none", true)
@@ -164,7 +164,7 @@ client.on('message', message => {
       let user = message.mentions.users.first();
       const userGame = user.presence.game;
       const mentionedEmbed = new Discord.RichEmbed()
-      .setTitle(`${user.username}#${user.discriminator}`)
+      .setAuthor(`${user.username}#${user.discriminator}`, message.author.avatarURL)
       .addField("Status:", user.presence.status)
       .addField("Bot:", user.bot)
       .addField("Playing:", userGame !== null ? userGame.name : "none", true)
