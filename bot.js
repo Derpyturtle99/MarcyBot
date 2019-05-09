@@ -122,6 +122,18 @@ client.on('message', message => {
         }
         message.reply(doBall() + '.');
     };
+
+    // Rock, Paper, Scissors Command
+    if (command === '~rps') {
+        function doRps() {
+            var rpsAnswer = ["Rock", "Paper" "Scissors"];
+            return rpsAnswer[Math.floor(Math.random()*ballAnswer.length)];
+        }
+        if (message.content === '~8ball' || !'~8ball rock' || !'~8ball paper' || !'~8ball scissors') {
+            return message.reply('Please specify your handsign.');
+        }
+        message.reply(doRps() + '.');
+    };
   
     // Avatar Command
     if (command === '~avatar') {
