@@ -4,7 +4,7 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-// redeploy test
+// redeploy test 2
 
 // CONFIG COMMANDS
 client.on('message', message => {
