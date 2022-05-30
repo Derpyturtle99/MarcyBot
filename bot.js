@@ -4,8 +4,6 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-// redeploy test 3
-
 // CONFIG COMMANDS
 client.on('message', message => {
     const args = message.content.slice(process.prefix).trim().split(/ +/g);
